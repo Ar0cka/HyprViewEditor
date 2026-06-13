@@ -1,6 +1,7 @@
 using HyprViewEditor.DISystem.Enums;
 using HyprViewEditor.DISystem.Providers;
 using HyprViewEditor.Scripts.Options;
+using HyprViewEditor.Scripts.Options.Interfaces;
 
 namespace HyprViewEditor;
 

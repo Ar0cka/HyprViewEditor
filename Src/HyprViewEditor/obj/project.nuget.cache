@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ABXj6Au4dYY=",
+  "dgSpecHash": "iWGnHR6Gdbg=",
   "success": true,
-  "projectFilePath": "/home/arocka/Repositors/HyprViewEditor/HyprViewEditor/HyprViewEditor.csproj",
+  "projectFilePath": "/home/arocka/Repositors/HyprViewEditor/Src/HyprViewEditor/HyprViewEditor.csproj",
   "expectedPackageFiles": [
     "/home/arocka/.nuget/packages/avalonia/12.0.4/avalonia.12.0.4.nupkg.sha512",
     "/home/arocka/.nuget/packages/avalonia.angle.windows.natives/2.1.27548.20260419/avalonia.angle.windows.natives.2.1.27548.20260419.nupkg.sha512",
@@ -34,7 +34,6 @@
     "/home/arocka/.nuget/packages/skiasharp.nativeassets.macos/3.119.4/skiasharp.nativeassets.macos.3.119.4.nupkg.sha512",
     "/home/arocka/.nuget/packages/skiasharp.nativeassets.webassembly/3.119.4/skiasharp.nativeassets.webassembly.3.119.4.nupkg.sha512",
     "/home/arocka/.nuget/packages/skiasharp.nativeassets.win32/3.119.4/skiasharp.nativeassets.win32.3.119.4.nupkg.sha512",
-    "/home/arocka/.nuget/packages/system.io.pipelines/8.0.0/system.io.pipelines.8.0.0.nupkg.sha512",
     "/home/arocka/.nuget/packages/tmds.dbus.protocol/0.92.0/tmds.dbus.protocol.0.92.0.nupkg.sha512",
     "/home/arocka/.nuget/packages/microsoft.aspnetcore.app.ref/10.0.8/microsoft.aspnetcore.app.ref.10.0.8.nupkg.sha512"
   ],

@@ -8,10 +8,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Folder Include="Abstractions\" />
         <Folder Include="Models\"/>
         <AvaloniaResource Include="Assets\**"/>
-        <Folder Include="Scripts\Parsers\" />
+        <Folder Include="Scripts\Options\Data\" />
+        <Folder Include="Scripts\Options\SystemOptions\" />
     </ItemGroup>
 
     <ItemGroup>

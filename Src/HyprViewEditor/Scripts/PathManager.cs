@@ -6,6 +6,8 @@ using HyprViewEditor.DISystem;
 using HyprViewEditor.DISystem.DiSystem;
 using HyprViewEditor.Scripts.Enums;
 using HyprViewEditor.Scripts.Options;
+using HyprViewEditor.Scripts.Options.Enums;
+using HyprViewEditor.Scripts.Options.Interfaces;
 
 namespace HyprViewEditor.Scripts;
 
