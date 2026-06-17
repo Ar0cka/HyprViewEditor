@@ -1,0 +1,77 @@
+# =========================
+# Build output
+# =========================
+bin/
+obj/
+out/
+build/
+publish/
+
+# =========================
+# Avalonia / .NET runtime artifacts
+# =========================
+*.dll
+*.exe
+*.pdb
+*.cache
+*.log
+
+# =========================
+# User-specific files
+# =========================
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / JetBrains
+.idea/
+*.DotSettings.user
+
+# Visual Studio
+.vs/
+
+# =========================
+# NuGet
+# =========================
+*.nupkg
+packages/
+.nuget/
+
+# optional: local package cache override
+**/packages.lock.json
+
+# =========================
+# Avalonia compiled XAML / generated stuff (if any custom generators)
+# =========================
+*.g.cs
+*.g.i.cs
+*.avalonia.g.cs
+
+# =========================
+# Logs / temp
+# =========================
+*.log
+*.tmp
+*.temp
+
+# =========================
+# OS junk
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Publish artifacts (VERY important for Avalonia apps)
+# =========================
+publish/
+release/
+*.appx
+*.msix
+*.zip
+
+# =========================
+# Rider / ReSharper caches
+# =========================
+_ReSharper*/
+*.[Rr]e[Ss]harper
