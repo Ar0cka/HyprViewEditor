@@ -25,13 +25,13 @@ public class OptionsController : IOptionsController
     
     public void SetOption(OptionType option, object value)
     {
-        if (!_configOptions.TryGetValue(option, out var system))
-        {
-            Console.Error.WriteLine($"Failed to find option system for {option}");
-            return;
-        }
-        
-        system.SetOption(value);
+        // if (!_configOptions.TryGetValue(option, out var system))
+        // {
+        //     Console.Error.WriteLine($"Failed to find option system for {option}");
+        //     return;
+        // }
+        //
+        // system.SetOption(value);
     }
 
     public void DeserializeOptions()
@@ -41,11 +41,11 @@ public class OptionsController : IOptionsController
 
     private void SerializeOptions()
     {
-        List<SerializeItem> items = new();
-
-        foreach (var item in _configOptions)
-        {
-            items.Add(new SerializeItem()
-        }
+        // List<SerializeItem> items = new();
+        //
+        // foreach (var item in _configOptions)
+        // {
+        //     items.Add(new SerializeItem()
+        // }
     }
 }

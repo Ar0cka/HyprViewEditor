@@ -2,19 +2,24 @@ using System.Collections.Generic;
 
 namespace HyprViewEditor.ConfigTemplates.Rofi;
 
-public record RofiValue(string value);
-public record RofiList(List<string> values);
-public record RofiExpression(string name, List<string> values);
-public record RofiReference(string reference);
+public record RofiConfig(List<string> imports, Dictionary<string, RofiBlock> blocks);
 
-public record RofiConfig(List<string> imports, Dictionary<string, RofiBlock> Blocks);
-
-public record RofiBlock(string Name, RofiBody RofiBody);
-
-public class RofiBody
+public class RofiBlock(string blockName)
 {
-    public Dictionary<string, RofiValue> Values { get; set; } = new();
-    public Dictionary<string, RofiExpression> Expressions { get; set; } = new();
-    public Dictionary<string, List<RofiList>> ListsProperties { get; set; } = new();
-    public Dictionary<string, RofiReference> ReferencesProperties { get; set; } = new();
+    public string BlockName { get; private set; } = blockName;
+    public List<RofiProperty> Properties { get; private set; } = new();
+    public List<RofiExpression> Expressions { get; private set; } = new();
+}
+
+public class RofiProperty(string propertyName, RofiPropertyTypes type)
+{
+    public string PropertyName { get; set; } = propertyName;
+    public RofiPropertyTypes PropertyType { get; set; } = type;
+    public List<string> PropertyValues { get; set; } = new List<string>(); 
+}
+
+public class RofiExpression(string name)
+{
+    public string Name { get; private set; } = name;
+    public List<string> Properties { get; private set; } = new();
 }

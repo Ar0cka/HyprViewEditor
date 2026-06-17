@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using HyprViewEditor.ConfigTemplates.Rofi;
 
@@ -14,17 +16,19 @@ public class RofiParser
         if (_rofiReader == null)
         {
             _rofiReader = new RofiReadPipeline();
-            _rofiReader.Initialize();
         }
         
         var import = ParseImport(input);
 
         Dictionary<string, RofiBlock> blocks = new();
-        var bodyRegex = new Regex(@"([a-zA-Z\*\-_]+)\s*\{(.*?)\}");
+        var bodyRegex = new Regex(@"([a-zA-Z\*\-_]+)\s*\{");
 
         foreach (Match item in bodyRegex.Matches(input))
         {
-            var rofiBlock = ReadBody(item);
+            var rofiBlock = ReadBody(item, input);
+            
+            if (rofiBlock is null)
+                continue;
             
             blocks[item.Groups[1].Value] = rofiBlock;
         }
@@ -32,17 +36,42 @@ public class RofiParser
         return new RofiConfig(import, blocks);
     }
 
-    private static RofiBlock ReadBody(Match item)
+    private static RofiBlock? ReadBody(Match item, string input)
     {
-        var outputData = _rofiReader?.Reading(item.Groups[2].Value);
+        if (string.IsNullOrEmpty(item.Groups[1].Value))
+        {
+            Console.Error.WriteLine("Error reading header");
+            return null!;
+        }
 
-        if (outputData == null)
+        var start = item.Index + item.Length; // start of the body
+        int end = 0;
+        int depth = 1;
+
+        StringBuilder value = new();
+
+        for (int i = start; i < input.Length; i++)
+        {
+            if (input[i] == '{') depth++;
+            if (input[i] == '}') depth--;
+
+            if (input[i] != '}' && input[i] != '{')
+                value.Append(input[i]);
+
+            if (depth == 0)
+            {
+                end = i;
+                break;
+            }
+        }
+
+        var rofiBlock = _rofiReader?.Reading(value.ToString(), item.Groups[1].Value);
+
+        if (rofiBlock == null)
         {
             Console.Error.WriteLine("Error reading body");
             return null!;
         }
-        
-        var rofiBlock = new RofiBlock(item.Groups[1].Value, outputData);
 
         return rofiBlock;
     }

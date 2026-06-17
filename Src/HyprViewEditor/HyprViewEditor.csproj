@@ -12,6 +12,8 @@
         <AvaloniaResource Include="Assets\**"/>
         <Folder Include="Scripts\Options\Data\" />
         <Folder Include="Scripts\Options\SystemOptions\" />
+        <Folder Include="Scripts\Parsers\Enums\" />
+        <Folder Include="Scripts\Parsers\Interfeces\" />
     </ItemGroup>
 
     <ItemGroup>

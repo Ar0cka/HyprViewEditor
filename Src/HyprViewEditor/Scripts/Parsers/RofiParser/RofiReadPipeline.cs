@@ -1,39 +1,71 @@
+using System;
 using System.Collections.Generic;
 using HyprViewEditor.ConfigTemplates.Rofi;
-using HyprViewEditor.Scripts.Parsers.Enums;
-using HyprViewEditor.Scripts.Parsers.Interfeces;
-using HyprViewEditor.Scripts.Parsers.States;
 
 namespace HyprViewEditor.Scripts.Parsers.RofiParser;
 
 public class RofiReadPipeline
 {
-    private readonly Dictionary<ParserState, IParserState?> _stateMap = new()
-    {
-        { ParserState.None, null },
-        { ParserState.ReadingList, null },
-        { ParserState.ReadingExpression, null },
-        { ParserState.ReadingProperty, null}
-    };
-
-    private IParserState? _currentState = null;
-    private ParserState? _currentStateType = ParserState.None;
-
-    public void Initialize()
-    {
-        _currentState = _stateMap[ParserState.None];
-    }
+    private BuildPropertyService _buildPropertyService = new();
     
-    public RofiBody Reading(string input)
+    public RofiBlock Reading(string input, string blockName)
     {
-        if (_currentState != null && _currentState.State != ParserState.None)
-            _currentState.Exit();
-
         var splitText = input.Split(';');
-
+        
+        var rofiBlock = new RofiBlock(blockName);
+        
         foreach (var text in splitText)
         {
-            //TODO: Pipeline: ReadKey -> ReadValue -> CheckFormat -> ChooseMethodForParsingValue -> (ReadExpression | ReadProperty | ReadList)
+            var key = ReadKey(text);
+            var value = ReadValue(text);
+            
+            var type = CheckFormat(value);
+
+            if (type == RofiPropertyTypes.Expression)
+            {
+                var expression = _buildPropertyService.BuildExpression(value, key);
+                rofiBlock.Expressions.Add(expression);
+                continue;
+            }
+
+            var property = _buildPropertyService.Build(key, value, type);
+
+            if (property == null)
+            {
+                Console.Error.WriteLine($"Failed to build property: {key}");
+                continue;
+            }
+            
+            rofiBlock.Properties.Add(property);
         }
+
+        return rofiBlock;
+    }
+
+    private string ReadKey(string text)
+    {
+        var data = text.Split(':');
+        return data[0];
+    }
+    private string ReadValue(string text)
+    {
+        var data = text.Split(':');
+        var value = data[1].Trim();
+        return value;
+    }
+    private RofiPropertyTypes CheckFormat(string value)
+    {
+        var trimValue = value.Trim();
+        var startChar = trimValue[0];
+
+        if (startChar == '[')
+            return RofiPropertyTypes.ListValue;
+        if (startChar == '@')
+            return RofiPropertyTypes.Reference;
+
+        if (trimValue.Contains('(') && trimValue.Contains(')'))
+            return RofiPropertyTypes.Expression;
+        
+        return RofiPropertyTypes.Value;
     }
 }
