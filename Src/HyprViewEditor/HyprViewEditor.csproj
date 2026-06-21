@@ -9,13 +9,16 @@
 
     <ItemGroup>
         <Folder Include="Models\"/>
+        <Content Include="Jsons\**">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
         <AvaloniaResource Include="Assets\**"/>
         <Folder Include="Scripts\Options\Data\" />
         <Folder Include="Scripts\Options\SystemOptions\" />
         <Folder Include="Scripts\Parsers\Enums\" />
         <Folder Include="Scripts\Parsers\Interfeces\" />
     </ItemGroup>
-
+    
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="12.0.4"/>
         <PackageReference Include="Avalonia.Desktop" Version="12.0.4"/>

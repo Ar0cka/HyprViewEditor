@@ -18,8 +18,10 @@ public class RofiProperty(string propertyName, RofiPropertyTypes type)
     public List<string> PropertyValues { get; set; } = new List<string>(); 
 }
 
-public class RofiExpression(string name)
+public class RofiExpression(string key, string name)
 {
-    public string Name { get; private set; } = name;
+    public string propertyKey { get; set; } = key;
+    public string valueKey { get; private set; } = name;
+    public RofiPropertyTypes PropertyTypes { get; private set; } = RofiPropertyTypes.Expression;
     public List<string> Properties { get; private set; } = new();
 }

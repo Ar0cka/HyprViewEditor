@@ -63,7 +63,7 @@ public class BuildPropertyService
             .Select(x => x.Trim())
             .ToList();
 
-        var property = new RofiExpression(name);
+        var property = new RofiExpression(key, name);
         property.Properties.AddRange(arguments);
 
         return property;

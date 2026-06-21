@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HyprViewEditor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ca87ca20a9e2f8d7c8e5825a5fae571ee64cba90")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+245df6c1a93ab4b3d0483fa0ee83de224623156d")]
 [assembly: System.Reflection.AssemblyProductAttribute("HyprViewEditor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HyprViewEditor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -54,6 +54,9 @@ public class RofiParser
         {
             if (input[i] == '{') depth++;
             if (input[i] == '}') depth--;
+            
+            if (char.IsWhiteSpace(input[i]))
+                continue;
 
             if (input[i] != '}' && input[i] != '{')
                 value.Append(input[i]);

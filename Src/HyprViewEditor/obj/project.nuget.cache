@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "iWGnHR6Gdbg=",
+  "dgSpecHash": "cH2dJu/gO80=",
   "success": true,
   "projectFilePath": "/home/arocka/Repositors/HyprViewEditor/Src/HyprViewEditor/HyprViewEditor.csproj",
   "expectedPackageFiles": [
@@ -35,7 +35,7 @@
     "/home/arocka/.nuget/packages/skiasharp.nativeassets.webassembly/3.119.4/skiasharp.nativeassets.webassembly.3.119.4.nupkg.sha512",
     "/home/arocka/.nuget/packages/skiasharp.nativeassets.win32/3.119.4/skiasharp.nativeassets.win32.3.119.4.nupkg.sha512",
     "/home/arocka/.nuget/packages/tmds.dbus.protocol/0.92.0/tmds.dbus.protocol.0.92.0.nupkg.sha512",
-    "/home/arocka/.nuget/packages/microsoft.aspnetcore.app.ref/10.0.8/microsoft.aspnetcore.app.ref.10.0.8.nupkg.sha512"
+    "/home/arocka/.nuget/packages/microsoft.aspnetcore.app.ref/10.0.9/microsoft.aspnetcore.app.ref.10.0.9.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,6 +1,7 @@
 ﻿using Avalonia;
 using System;
 using System.IO;
+using HyprViewEditor.Scripts.Parsers;
 using HyprViewEditor.Scripts.Parsers.RofiParser;
 
 namespace HyprViewEditor;
@@ -19,29 +20,12 @@ sealed class Program
             throw new Exception("Rofi file is empty");
 
         var config = RofiParser.Parser(file);
-
-        foreach (var import in config.imports)
-        {
-            Console.WriteLine("import: " + import);
-        }
         
-        foreach (var block in config.blocks)
-        {
-            Console.WriteLine(block.Key);
-            foreach (var expression in block.Value.Expressions)
-            {
-                Console.WriteLine(expression.Name, expression.Properties);
-            }
+        if (config == null)
+            throw new Exception("Rofi file is invalid");
 
-            foreach (var property in block.Value.Properties)
-            {
-                foreach (var value in property.PropertyValues)
-                {
-                    Console.WriteLine(property.PropertyName + " : " + value);
-                }
-            }
-        }
-        
+        RofiConverter.RofiConfigToJson(config);
+
         // BuildAvaloniaApp()
         //     .StartWithClassicDesktopLifetime(args);
     } 

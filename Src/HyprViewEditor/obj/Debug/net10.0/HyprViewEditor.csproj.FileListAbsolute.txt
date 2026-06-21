@@ -91,3 +91,6 @@
 /home/arocka/Repositors/HyprViewEditor/Src/HyprViewEditor/obj/Debug/net10.0/HyprViewEditor.pdb
 /home/arocka/Repositors/HyprViewEditor/Src/HyprViewEditor/obj/Debug/net10.0/HyprViewEditor.genruntimeconfig.cache
 /home/arocka/Repositors/HyprViewEditor/Src/HyprViewEditor/obj/Debug/net10.0/ref/HyprViewEditor.dll
+/home/arocka/Repositors/HyprViewEditor/Src/HyprViewEditor/bin/Debug/net10.0/Jsons/options.json
+/home/arocka/Repositors/HyprViewEditor/Src/HyprViewEditor/bin/Debug/net10.0/Jsons/paths.json
+/home/arocka/Repositors/HyprViewEditor/Src/HyprViewEditor/bin/Debug/net10.0/Jsons/Rofi/rofi_config.json
